@@ -109,6 +109,72 @@ function generatePassword(passwordLength, lowerCase, upperCase, numeric, special
           continue;
       }
     }
+    //Generates a password if lowercase and uppercase characters are selected
+    else if (lowerCase && upperCase) {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomUpper();
+          continue;
+      }
+    }
+    //Generates a password if lowercase and numeric characters are selected
+    else if (lowerCase && numeric) {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomNumber();
+          continue;
+      }
+    }
+    //Generates a password if lowercase and special characters are selected
+    else if (lowerCase && special) {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomSpecial();
+          continue;
+      }
+    }
+    //Generates a password if uppercase and numeric characters are selected
+    else if (upperCase && numeric) {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          password += getRandomUpper();
+          continue;
+        case 1:
+          password += getRandomNumber();
+          continue;
+      }
+    }
+    //Generates a password if uppercase and special characters are selected
+    else if (upperCase && special) {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          password += getRandomUpper();
+          continue;
+        case 1:
+          password += getRandomSpecial();
+          continue;
+      }
+    }
+    //Generates a password if numeric and special characters are selected
+    else if (numeric && special) {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          password += getRandomNumber();
+          continue;
+        case 1:
+          password += getRandomSpecial();
+          continue;
+      }
+    }
   }
   return password;
 }
