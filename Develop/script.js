@@ -20,14 +20,21 @@ function writePassword() {
   let numeric = confirm("Do you want your password to contain numbers?");
   let special = confirm("Do you want your password to contain special characters? (i.e. @ or &");
 
-  var password = generatePassword();
+  //Resets function if no character type is selected
+  if (lowerCase == false && upperCase == false && numeric == false && special == false) {
+    alert("Please select at least one character type.");
+    return;
+  }
+
+  //Passes user selections into password generator
+  var password = generatePassword(passwordLength, lowerCase, upperCase, numeric, special);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
 
-function generatePassword(lowerCase, upperCase, numeric, special) {
-
+function generatePassword(passwordLength, lowerCase, upperCase, numeric, special) {
+  let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
 }
 
 // Add event listener to generate button
