@@ -34,44 +34,79 @@ function writePassword() {
 }
 
 function generatePassword(passwordLength, lowerCase, upperCase, numeric, special) {
-  var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
   var password = "";
-
-  //Generates random password if all character types are selected
-  if(lowerCase && upperCase && numeric && special) {
-    for (var i = 0; i < passwordLength; i++) {
-      password += characters.charAt(Math.floor(Math.random() *72));
-    }
-  }
-  //Generates random password if all character type but special are selected
-  else if (lowerCase && upperCase && numeric) {
-    for (var i = 0; i < passwordLength; i++) {
-      password += characters.charAt(Math.floor(Math.random() *62));
-    }
-  }
-  //generates random password if all character types but numeric are selected
-  else if (lowerCase && upperCase && special) {
-    for (var i = 0; i < passwordLength; i++) {
-      let randomNumber = (Math.floor(Math.random() *72));
-      if (randomNumber >= 52 && randomNumber <= 61) {
-        i--;
-        continue;
-      }
-      else {
-        password += characters.charAt(randomNumber);
+  for (let i = 0; i < passwordLength; i++){
+    //Generates a password if all character types are selected
+    if (lowerCase && upperCase && numeric && special) {
+      switch (Math.floor(Math.random() *4)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomUpper();
+          continue;
+        case 2:
+          password += getRandomNumber();
+          continue;
+        case 3:
+          password += getRandomSpecial();
+          continue;
       }
     }
-  }
-  //Generates random password if all character types but uppercase are selected
-  else if (lowerCase && numeric && special) {
-    for (var i = 0; i < passwordLength; i++) {
-      let randomNumber = (Math.floor(Math.random() *72));
-      if (randomNumber >= 26 && randomNumber <= 51) {
-        i--;
-        continue;
+    //Generates a password if all character types but special are selected
+    else if (lowerCase && upperCase && numeric) {
+      switch (Math.floor(Math.random() * 3)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomUpper();
+          continue;
+        case 2:
+          password += getRandomNumber();
+          continue;
       }
-      else {
-        password += characters.charAt(randomNumber);
+    }
+    //Generates a password if all character types but numeric are selected
+    else if (lowerCase && upperCase && special) {
+      switch (Math.floor(Math.random() * 3)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomUpper();
+          continue;
+        case 2:
+          password += getRandomSpecial();
+          continue;
+      }
+    }
+    //Generates a password if all character types but uppercase are selected
+    else if (lowerCase && numeric && special) {
+      switch (Math.floor(Math.random() * 3)) {
+        case 0:
+          password += getRandomLower();
+          continue;
+        case 1:
+          password += getRandomNumber();
+          continue;
+        case 2:
+          password += getRandomSpecial();
+          continue;
+      }
+    }
+    //Generates a password if all character types but lowercase are selected
+    else if (upperCase && numeric && special) {
+      switch (Math.floor(Math.random() * 3)) {
+        case 0:
+          password += getRandomUpper();
+          continue;
+        case 1:
+          password += getRandomNumber();
+          continue;
+        case 2:
+          password += getRandomSpecial();
+          continue;
       }
     }
   }
