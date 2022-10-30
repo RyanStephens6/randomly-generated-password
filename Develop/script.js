@@ -18,7 +18,7 @@ function writePassword() {
   let lowerCase = confirm("Do you want your password to contain lowercase characters?");
   let upperCase = confirm("Do you want your password to contain uppercase characters?");
   let numeric = confirm("Do you want your password to contain numbers?");
-  let special = confirm("Do you want your password to contain special characters? (i.e. @ or &");
+  let special = confirm("Do you want your password to contain special characters? (i.e. @ or &)");
 
   //Resets function if no character type is selected
   if (lowerCase == false && upperCase == false && numeric == false && special == false) {
