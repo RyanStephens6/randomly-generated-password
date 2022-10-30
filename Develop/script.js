@@ -34,7 +34,16 @@ function writePassword() {
 }
 
 function generatePassword(passwordLength, lowerCase, upperCase, numeric, special) {
-  let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
+  var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+  var password = "";
+
+  if(lowerCase && upperCase && numeric && special) {
+    for (var i = 0; i < passwordLength; i++) {
+      password += characters.charAt(Math.floor(Math.random() *72));
+    }
+  }
+
+  return password;
 }
 
 // Add event listener to generate button
