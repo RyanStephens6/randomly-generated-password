@@ -175,6 +175,26 @@ function generatePassword(passwordLength, lowerCase, upperCase, numeric, special
           continue;
       }
     }
+    //Generates a password if only lowercase is selected
+    else if (lowerCase) {
+      password += getRandomLower();
+      continue;
+    }
+    //Generates a password if only uppercase is selected
+    else if (upperCase) {
+      password += getRandomUpper();
+      continue;
+    }
+    //Generates a password if only numeric is selected
+    else if (numeric) {
+      password += getRandomNumber();
+      continue;
+    }
+    //Generates a password if only special is selected
+    else if (special) {
+      password += getRandomSpecial();
+      continue;
+    }
   }
   return password;
 }
