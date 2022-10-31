@@ -14,9 +14,9 @@ To generate a password, click the "Generate Password" button. You will then be p
 
 ## Webpage
 
-link here
+https://ryanstephens6.github.io/randomly-generated-password/
 
-screenshot here
+![Website screenshot](/Password-Generator.png "Random password generator")
 
 ## Credits
 
